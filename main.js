@@ -4,6 +4,8 @@ const weatherResult = document.getElementById('weatherResult');
 
 //add event listeners
 
+
+
 searchBtn.addEventListener('click', () => {
     const city = cityInput.value.trim();
     if (city === "") {
@@ -12,6 +14,21 @@ searchBtn.addEventListener('click', () => {
     }
 
     getWeather(city);
+})
+
+
+cityInput.addEventListener('keypress', function (event) {
+    if( event.key === "Enter"){
+        const city = cityInput.value.trim();
+        if(city === ""){
+            weatherResult.innerHTML = "<p>Please enter a city</p>"
+            return;
+        }
+
+        getWeather(city);
+    }
+
+    
 })
 
 
